@@ -16,6 +16,9 @@ public:
 	// Sets default values for this component's properties
 	UBlastingComponent1();
 
+	UFUNCTION(BlueprintCallable, Category = "Blaster")
+	void ShootingBlast(float Speed, UClass* blastMesh);
+
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
@@ -23,6 +26,6 @@ protected:
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-
+	
 		
 };

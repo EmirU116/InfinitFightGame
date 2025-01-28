@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "PlayerFeatures/Public/BlastingComponent1.h"
+#include"BlastingComponent1.h"
 
 // Sets default values for this component's properties
 UBlastingComponent1::UBlastingComponent1()
@@ -31,4 +31,17 @@ void UBlastingComponent1::TickComponent(float DeltaTime, ELevelTick TickType, FA
 
 	// ...
 }
+
+void UBlastingComponent1::ShootingBlast(float Speed, UClass* blastMesh)
+{
+	// Create a projectile
+	FVector Location = GetOwner()->GetActorForwardVector() + 25.f;
+	FRotator Rotation = GetOwner()->GetActorRotation();
+	FActorSpawnParameters SpawnInfo;
+	SpawnInfo.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+	GetWorld()->SpawnActor<AActor>(blastMesh, Location, Rotation, SpawnInfo);
+
+	UE_LOG(LogTemp, Warning, TEXT("Shooting Blast"));
+}
+
 
